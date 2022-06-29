@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TaskService } from '../../service/task.service';
-import {Task} from '../../Task'
+import { Task } from '../../Task';
 
 
 @Component({
@@ -8,25 +8,28 @@ import {Task} from '../../Task'
   templateUrl: './tasks.component.html',
   styleUrls: ['./tasks.component.css']
 })
+
 export class TasksComponent implements OnInit {
 
-  private apiUrl = 'http://localhost:5000/tasks'
-
-  tasks: Task [] = []; 
-
+  tasks: Task[] = []; 
 
   constructor(
     private taskService: TaskService
   ) { }
   
-
   ngOnInit(): void {
     // Like promise
-    this.taskService.getTasks().subscribe(tasks => [
-      this.tasks = tasks
+    this.taskService.getTasks().subscribe(tasks => 
+      [this.tasks = tasks
     ]);
 
-
+    }
+ 
+  deleteTask(task:Task) {
+    this.taskService.deleteTask(task)
+    .subscribe(() => [
+    this.tasks = this.tasks.filter ( (t) => t.id !== task.id )
+    ])
   }
 
 }

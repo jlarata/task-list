@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { TaskService } from '../../service/task.service';
 import {Task} from '../../Task'
-import {TASKS} from '../../mock-tasks'
 
 
 @Component({
@@ -10,12 +10,23 @@ import {TASKS} from '../../mock-tasks'
 })
 export class TasksComponent implements OnInit {
 
-  tasks: Task [] = TASKS; 
+  private apiUrl = 'http://localhost:5000/tasks'
+
+  tasks: Task [] = []; 
 
 
-  constructor() { }
+  constructor(
+    private taskService: TaskService
+  ) { }
+  
 
   ngOnInit(): void {
+    // Like promise
+    this.taskService.getTasks().subscribe(tasks => [
+      this.tasks = tasks
+    ]);
+
+
   }
 
 }

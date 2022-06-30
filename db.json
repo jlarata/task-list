@@ -4,25 +4,25 @@
       "id": 1,
       "text": "Terminar primer módulo de Angular",
       "day": "Mayo 20, a la tardecita",
-      "reminder": true
+      "reminder": false
     },
     {
       "id": 2,
       "text": "Cocinar las almóndigas",
       "day": "junio 30, 7:30",
-      "reminder": true
+      "reminder": false
     },
     {
       "id": 3,
       "text": "maxoutear",
       "day": "noviembre 20, 2:00",
-      "reminder": false
+      "reminder": true
     },
     {
       "id": 4,
       "text": "Ayudar al pueblo",
       "day": "Mayo 20, más temprano",
-      "reminder": false
+      "reminder": true
     }
   ]
 }
